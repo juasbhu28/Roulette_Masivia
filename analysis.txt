@@ -1,0 +1,71 @@
+1) /newGame
+
+  out
+  {
+    "guid": "bc1b34ad-7bc6-4ed5-8777-723c348e5f0d"
+  }
+
+2) /getStatusGame/{{GUID}} 
+
+  out
+  {
+    "status" : "open"  // (status ? "open" , "close")
+  }
+
+3) /newBed/{{GUID}}
+
+Headers
+UserTokenId : "37ce1e1c2d884a0c8ff386a1578f436e"
+
+Body
+{
+  "user_id" : "37ce1",
+  "bed":{
+    "type" : "number",   // [number, color]
+    "value" :  "0"      //[0-36||"black", "red"]
+    "valor" : 123123.32
+  }
+
+}
+
+
+4) /closeGame/{{GUID}}
+Este juego cambia de status a close
+
+Result 
+
+{
+   "bet_result":{
+      "color":"black",
+      "number":36
+   },
+   "winners":[
+      {
+         "name":"gamer1",
+         "desc":"color",
+         "won":"x1.8"
+      },
+      {
+         "name":"gamer2",
+         "desc":"number",
+         "won":"x5"
+      }
+   ]
+}
+
+
+5)/getAllGames
+
+out
+{
+   "all_games":[
+      {
+         "guid":"asdfa1",
+         "status":"open"
+      },
+      {
+         "guid":"asffa2",
+         "status":"close"
+      }
+   ]
+}
