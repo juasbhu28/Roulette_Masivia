@@ -4,7 +4,7 @@
 
 Fortune wheel for the HH.js README Roulette.
 
-### What is this
+### Features
   + Strong typing.
   + Swagger API Documentation
   + Dockerized
