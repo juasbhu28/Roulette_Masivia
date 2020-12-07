@@ -1,18 +1,18 @@
-1) /newGame
+1) /roulette/newgame                          -Get
 
   out
   {
     "guid": "bc1b34ad-7bc6-4ed5-8777-723c348e5f0d"
   }
 
-2) /getStatusGame/{{GUID}} 
+2) /roulette/getstatusgame/{rouletteId}          -Get
 
   out
   {
     "status" : "open"  // (status ? "open" , "close")
   }
 
-3) /newBed/{{GUID}}
+3) /roulette/newbet/{rouletteId}                  -POST
 
 Headers
 UserTokenId : "37ce1e1c2d884a0c8ff386a1578f436e"
@@ -20,17 +20,17 @@ UserTokenId : "37ce1e1c2d884a0c8ff386a1578f436e"
 Body
 {
   "user_id" : "37ce1",
-  "bed":{
-    "type" : "number",   // [number, color]
-    "value" :  "0"      //[0-36||"black", "red"]
-    "valor" : 123123.32
+  "bet":{
+    "type" : "number",   // [number, color] -> Enum
+    "value" :  "0"      //  [0-36||"black", "red"]
+    "price" : 123123.32
   }
 
 }
 
 
-4) /closeGame/{{GUID}}
-Este juego cambia de status a close
+4) /roulette/closegame/{rouletteId}               -PUT
+Este juego cambia el status a close
 
 Result 
 
@@ -54,7 +54,7 @@ Result
 }
 
 
-5)/getAllGames
+5)/roulette/getallgames           -GET
 
 out
 {

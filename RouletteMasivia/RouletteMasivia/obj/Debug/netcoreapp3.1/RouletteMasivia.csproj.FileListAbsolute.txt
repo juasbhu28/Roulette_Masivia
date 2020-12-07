@@ -1,0 +1,5 @@
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.csprojAssemblyReference.cache
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.AssemblyInfoInputs.cache
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.AssemblyInfo.cs
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.csproj.CoreCompileInputs.cache
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.MvcApplicationPartsAssemblyInfo.cache
