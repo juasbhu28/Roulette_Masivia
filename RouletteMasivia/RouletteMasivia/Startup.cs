@@ -62,7 +62,7 @@ namespace RouletteMasivia
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=swagger}/{action=Index}");
             });
         }
     }
