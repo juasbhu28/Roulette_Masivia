@@ -8,7 +8,11 @@ namespace RouletteMasivia.Controllers.V1.Responses
 {
     public class WinnersResponse
     {
-        public Guid Id { get; set; }
-        public List<Player> Players { get; set; }
+        public Guid roulette_id { get; set; }
+        public string message { get; set; }
+        public BetResult bet_result { get; set; }        
+        public IEnumerable<PlayerResult> winners_by_color { get; set; }
+        public IEnumerable<PlayerResult> winners_by_number { get; set; }
     }
 }
+

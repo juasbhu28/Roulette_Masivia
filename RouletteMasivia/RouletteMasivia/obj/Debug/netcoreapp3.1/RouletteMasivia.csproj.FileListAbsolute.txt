@@ -23,3 +23,4 @@ E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\bin\Debug\netcor
 E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.MvcApplicationPartsAssemblyInfo.cs
 E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.csproj.CopyComplete
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.csprojAssemblyReference.cache

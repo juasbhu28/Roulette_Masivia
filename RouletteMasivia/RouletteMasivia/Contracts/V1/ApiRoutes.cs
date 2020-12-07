@@ -15,7 +15,7 @@ namespace RouletteMasivia.Contracts.V1
         {
             public const string NewGame = Base + "/newgame";
             public const string GetStatusGame = Base + "/getstatusgame/{rouletteId}";
-            public const string NewBet = Base + "/newbet/{rouletteId}";
+            public const string NewBet = Base + "/newbet";
             public const string CloseGame = Base + "/closegame/{rouletteId}";
             public const string GetAllGames = Base + "/getallgames";
         }

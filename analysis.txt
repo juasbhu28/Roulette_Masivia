@@ -39,16 +39,24 @@ Result
       "color":"black",
       "number":36
    },
-   "winners":[
+   "winners_by_color":[
       {
-         "name":"gamer1",
-         "desc":"color",
-         "won":"x1.8"
+         "playerId":"gamer1",
+         "earn":"color" 
       },
       {
-         "name":"gamer2",
-         "desc":"number",
-         "won":"x5"
+         "playerId":"gamer1",
+         "earn":"color" 
+      }
+   ],
+   "winners_by_number":[
+      {
+         "playerId":"gamer1",
+         "earn":"color" 
+      },
+      {
+         "playerId":"gamer1",
+         "earn":"color" 
       }
    ]
 }
@@ -58,7 +66,7 @@ Result
 
 out
 {
-   "all_games":[
+   [
       {
          "guid":"asdfa1",
          "status":"open"

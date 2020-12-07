@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace RouletteMasivia.Controllers.V1.Responses
 {
-    public class AllRoulettesResponse
+    public class BetResult
     {
+        public string Color { get; set; }
+        public int Number { get; set; }
     }
 }

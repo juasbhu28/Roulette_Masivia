@@ -38,27 +38,30 @@ namespace RouletteMasivia.V1.Controllers
         [HttpGet(ApiRoutes.Roulette.GetStatusGame)]
         public IActionResult GetStatusGame([FromRoute]Guid rouletteId)
         {
-            var roulette = _rouletteServices.GetStatusRoulette(rouletteId);
-
-            if (roulette == null)
-                return NotFound(); //Corregir
-
-            var response = new StatusGameResponse { Status = roulette.Status };
+            if (rouletteId == Guid.Empty)  return NotFound();
+            Roulette roulette = _rouletteServices.GetStatusRoulette(rouletteId);
+            if (roulette == null)  return NotFound();
+            var response = new StatusGameResponse { Status_Roulette = roulette.Status };
 
             return Ok(response);
         }
 
-        [HttpPost(ApiRoutes.Roulette.NewBet)]
-        public IActionResult NewBet([FromRoute]Guid rouletteId, [FromHeader] string token, [FromBody]CreateRouletteBet bet)
+        [HttpPut(ApiRoutes.Roulette.NewBet)]
+        public IActionResult NewBet([FromHeader]string user_id, [FromBody]CreateRouletteBet bet)
         {
-            var rouletteBet = _rouletteServices.NewBet(rouletteId, bet);
+            if (bet.roueletteId == Guid.Empty) return NotFound();
 
-            return Ok(new { result = (rouletteBet ? "Succes" : "Fail") } );
+            var rouletteBet = _rouletteServices.NewBet(bet);   
+            
+            return Ok(new { result = (rouletteBet ? "Succes" : "Failed") } );
         }
 
         [HttpGet(ApiRoutes.Roulette.CloseGame)]
         public IActionResult CloseGame([FromRoute]Guid rouletteId)
         {
+            if (rouletteId == Guid.Empty) return NotFound();
+            //Ya esta cerrado
+            //Nobody wins
             var winners = _rouletteServices.CloseGame(rouletteId);
 
             return Ok(winners);
@@ -67,6 +70,8 @@ namespace RouletteMasivia.V1.Controllers
         [HttpGet(ApiRoutes.Roulette.GetAllGames)]
         public IActionResult GetAllGames()
         {
+            if (_rouletteServices.GetRoulettes()?.Any() == false)
+                return NotFound();
             return Ok(_rouletteServices.GetRoulettes());
         }
     }

@@ -32,6 +32,7 @@ namespace RouletteMasivia
                 page.SwaggerDoc("v1", new OpenApiInfo { Title = "Roulette Maisivian", Version = "v1" });
             });
             services.AddControllers();
+            services.AddSingleton(op => op.red)
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

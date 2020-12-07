@@ -8,6 +8,7 @@ namespace RouletteMasivia.Controllers.V1.Requests
 {
     public class CreateRouletteBet
     {
+        public Guid roueletteId { get; set; }
         public TypeBet TypeBet { get; set; }
         public string Value { get; set; }
         public float Price { get; set; }

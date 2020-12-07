@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace RouletteMasivia.Controllers.V1.Responses
 {
-    public class StatusGameResponse
-    {        
-        public string Status_Roulette { get; set; }
+    public class PlayerResult
+    {
+        public Guid Id { get; set; }
+        public float earn { get; set; }
     }
 }
