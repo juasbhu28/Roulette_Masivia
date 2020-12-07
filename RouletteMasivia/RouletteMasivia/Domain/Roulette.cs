@@ -11,9 +11,9 @@ namespace RouletteMasivia.Domain
         public DateTime StarTime { get; set; }
         public DateTime EndTime { get; set; }
         public string Status { get; set; }
-        public List<Player> Players { get; set; }
+        public List<Player> Players { get; set; } = new List<Player>();
         public Roulette()
-        {
+        { 
             Id = Guid.NewGuid();
             Status = "Open";
             StarTime = DateTime.Now;

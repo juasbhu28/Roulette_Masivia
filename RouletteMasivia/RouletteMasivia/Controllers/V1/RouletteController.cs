@@ -21,12 +21,18 @@ namespace RouletteMasivia.V1.Controllers
             _rouletteServices = rouletteService;
         }
 
-        [HttpGet(ApiRoutes.Roulette.NewGame)]
+        [HttpPost(ApiRoutes.Roulette.NewGame)]
         public IActionResult NewGame()
         {
             var roulette = _rouletteServices.NewGame();
+
+            var baseUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host.ToUriComponent()}";
+            var localtionUri =  baseUrl + "/" + ApiRoutes.Roulette.GetStatusGame.Replace("{rouletteId}", roulette.Id.ToString() );
+                
             var response = new { Id = roulette.Id };
-            return Ok(response);
+
+            return Created(localtionUri, response);
+  
         }
 
         [HttpGet(ApiRoutes.Roulette.GetStatusGame)]
@@ -42,12 +48,12 @@ namespace RouletteMasivia.V1.Controllers
             return Ok(response);
         }
 
-        [HttpGet(ApiRoutes.Roulette.NewBet)]
-        public IActionResult NewBet([FromRoute]Guid rouletteId, [FromBody]CreateRouletteBet bet)
+        [HttpPost(ApiRoutes.Roulette.NewBet)]
+        public IActionResult NewBet([FromRoute]Guid rouletteId, [FromHeader] string token, [FromBody]CreateRouletteBet bet)
         {
             var rouletteBet = _rouletteServices.NewBet(rouletteId, bet);
 
-            return Ok(rouletteBet);
+            return Ok(new { result = (rouletteBet ? "Succes" : "Fail") } );
         }
 
         [HttpGet(ApiRoutes.Roulette.CloseGame)]

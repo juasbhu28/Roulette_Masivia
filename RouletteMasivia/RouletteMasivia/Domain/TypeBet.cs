@@ -8,10 +8,10 @@ namespace RouletteMasivia.Domain
 {
     public enum TypeBet
     {
-        [Display(Name = "Numeric Bet")]
+        [Display(Name = "Bet by Numeric")]
         Number,
 
-        [Display(Name = "Color Bet")]
+        [Display(Name = "Bet by Color")]
         Color
     }
 }

@@ -18,7 +18,7 @@ namespace RouletteMasivia.Services
         }
         public List<string> CloseGame(Guid rouletteId)
         {
-            var roulette = _roulettes.SingleOrDefault((r) => r.Id == rouletteId);
+            Roulette roulette = _roulettes.SingleOrDefault((r) => r.Id == rouletteId);
 
             var numberWin = new Random().Next(0, 36);            
             var colorWin = new Random().Next(0, 1);
@@ -41,15 +41,13 @@ namespace RouletteMasivia.Services
             return _roulettes.SingleOrDefault(r => r.Id == rouletteId);
         }
 
-        public Bet NewBet(Guid rouletteId, CreateRouletteBet bet)
+        public bool NewBet(Guid rouletteId, CreateRouletteBet bet)
         {
-            var roulette = _roulettes.SingleOrDefault((r) => r.Id == rouletteId);
-            var newBet = new Bet { TypeBet = bet.TypeBet, Value = bet.Value, Price = bet.Price };
-            
-            roulette.Players.Add( new Player { Bet = newBet });
-
-            //Actualizar una lista
-            return newBet;            
+            Roulette roulette = _roulettes.SingleOrDefault((r) => r.Id == rouletteId);
+            Bet newBet = new Bet() { TypeBet = bet.TypeBet, Value = bet.Value, Price = bet.Price };
+            Player newPlayer = new Player() { Bet = newBet };
+            roulette.Players.Add(newPlayer); 
+            return true;            
         }
 
         public Roulette NewGame() 

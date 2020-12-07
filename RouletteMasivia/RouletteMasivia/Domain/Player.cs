@@ -7,7 +7,7 @@ namespace RouletteMasivia.Domain
 {
     public class Player
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public Bet Bet { get; set; }
     }
 }

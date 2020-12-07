@@ -11,7 +11,7 @@ namespace RouletteMasivia.Services
     {
         Roulette NewGame();
         Roulette GetStatusRoulette(Guid rouletteId);
-        Bet NewBet(Guid rouletteId, CreateRouletteBet Bet);
+        bool NewBet(Guid rouletteId, CreateRouletteBet Bet);
         List<Roulette> GetRoulettes();
         List<string> CloseGame(Guid rouletteId);
     }
