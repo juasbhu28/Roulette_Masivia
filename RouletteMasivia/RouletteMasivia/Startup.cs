@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 
 namespace RouletteMasivia
 {
@@ -25,15 +26,14 @@ namespace RouletteMasivia
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {          
             services.AddSingleton<IRouletteService, RouletteService>();
             services.AddSwaggerGen(page =>
             {
                 page.SwaggerDoc("v1", new OpenApiInfo { Title = "Roulette Maisivian", Version = "v1" });
             });
             services.AddControllers();
-            services.AddSingleton(op => op.red)
-        }
+                    }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
