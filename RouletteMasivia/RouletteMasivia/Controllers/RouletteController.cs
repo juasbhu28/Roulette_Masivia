@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using RouletteMasivia.Controllers.Responses;
+using RouletteMasivia.Controllers.Requests;
 
 namespace RouletteMasivia.Controllers
 {
@@ -29,20 +31,25 @@ namespace RouletteMasivia.Controllers
             if (roulette == null)
                 return NotFound(); //Corregir
 
-            return Ok(roulette);
+            var response = new StatusGameResponse { Status = roulette.Status };
+
+            return Ok(response);
         }
 
         [HttpGet("/roulette/newbet/{rouletteId}")]
-        public IActionResult NewBet([FromRoute]Guid rouletteId, [FromBody]Bet bet)
+        public IActionResult NewBet([FromRoute]Guid rouletteId, [FromBody]CreateRouletteBet bet)
         {
             var rouletteBet = _rouletteServices.NewBet(rouletteId, bet);
-            return Ok(new { working = "I'm working" });
+
+            return Ok(rouletteBet);
         }
 
         [HttpGet("/roulette/closegame/{rouletteId}")]
         public IActionResult CloseGame([FromRoute]Guid rouletteId)
         {
-            return Ok(new { working = "I'm working" + rouletteId });
+            var winners = _rouletteServices.CloseGame(rouletteId);
+
+            return Ok(winners);
         }
 
         [HttpGet("/roulette/getallgames")]

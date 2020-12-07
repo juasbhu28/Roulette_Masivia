@@ -1,4 +1,5 @@
-﻿using RouletteMasivia.Domain;
+﻿using RouletteMasivia.Controllers.Requests;
+using RouletteMasivia.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,29 +9,48 @@ namespace RouletteMasivia.Services
 {
     public class RouletteService : IRouletteService
     {
-        public string CloseGame(Guid rouletteId)
+        private readonly List<Roulette> _roulettes;
+
+        public RouletteService()
         {
-            throw new NotImplementedException();
+            _roulettes = new List<Roulette>();
+        }
+        public List<string> CloseGame(Guid rouletteId)
+        {
+            var roulette = _roulettes.SingleOrDefault((r) => r.Id == rouletteId);
+
+            var numberWin = new Random().Next(0, 36);            
+            var colorWin = new Random().Next(0, 1);
+
+            var winColorList = roulette.Players.FindAll(p => p.Bet.TypeBet == TypeBet.Color && p.Bet.Value == (colorWin == 0 ? "Black" : "Red"));
+            var winNumberList = roulette.Players.FindAll(p => p.Bet.TypeBet == TypeBet.Number && p.Bet.Value == numberWin.ToString());
+
+            List<string> listResult = winColorList.Concat(winNumberList.ToString());
+
+            return listResult;
         }
 
         public List<Roulette> GetRoulettes()
         {
-            throw new NotImplementedException();
+            return _roulettes;
         }
 
         public Roulette GetStatusRoulette(Guid rouletteId)
         {
-            throw new NotImplementedException();
+            return _roulettes.SingleOrDefault(r => r.Id == rouletteId);
         }
 
-        public Bet NewBet(Guid rouletteId, Bet bet)
+        public Bet NewBet(Guid rouletteId, CreateRouletteBet bet)
         {
-            throw new NotImplementedException();
+            var roulette = _roulettes.SingleOrDefault((r) => r.Id == rouletteId);
+            var newBet = new Bet { TypeBet = bet.TypeBet, Value = bet.Value, Price = bet.Price };
+            
+            roulette.Players.Add( new Player { Bet = newBet });
+
+            //Actualizar una lista
+            return newBet;            
         }
 
-        public Roulette NewGame()
-        {
-            throw new NotImplementedException();
-        }
+        public Roulette NewGame() => new Roulette();
     }
 }
