@@ -5,10 +5,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RouletteMasivia.Services;
+using RouletteMasivia.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.OpenApi.Models;
 
 namespace RouletteMasivia
 {
@@ -25,6 +27,10 @@ namespace RouletteMasivia
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IRouletteService, RouletteService>();
+            services.AddSwaggerGen(page =>
+            {
+                page.SwaggerDoc("v1", new OpenApiInfo { Title = "Roulette Maisivian", Version = "v1" });
+            });
             services.AddControllers();
         }
 
@@ -39,6 +45,13 @@ namespace RouletteMasivia
             {              
                 app.UseHsts();
             }
+            var swaggerOptions = new SwaggerOptions();
+            Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
+            app.UseSwagger(option =>
+            {
+                option.RouteTemplate = swaggerOptions.JsonRoute;
+            });
+            app.UseSwaggerUI(option => { option.SwaggerEndpoint(swaggerOptions.UIEndpoint, swaggerOptions.Description); });
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

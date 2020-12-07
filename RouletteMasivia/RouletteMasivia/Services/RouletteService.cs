@@ -1,9 +1,10 @@
-﻿using RouletteMasivia.Controllers.Requests;
+﻿
 using RouletteMasivia.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using RouletteMasivia.Controllers.V1.Requests;
 
 namespace RouletteMasivia.Services
 {
@@ -25,7 +26,7 @@ namespace RouletteMasivia.Services
             var winColorList = roulette.Players.FindAll(p => p.Bet.TypeBet == TypeBet.Color && p.Bet.Value == (colorWin == 0 ? "Black" : "Red"));
             var winNumberList = roulette.Players.FindAll(p => p.Bet.TypeBet == TypeBet.Number && p.Bet.Value == numberWin.ToString());
 
-            List<string> listResult = winColorList.Concat(winNumberList.ToString());
+            List<string> listResult = new List<string>();//winColorList.Concat(winNumberList.ToList()).ToList();
 
             return listResult;
         }
@@ -51,6 +52,11 @@ namespace RouletteMasivia.Services
             return newBet;            
         }
 
-        public Roulette NewGame() => new Roulette();
+        public Roulette NewGame() 
+        {
+            var newRoulette = new Roulette();
+            _roulettes.Add(newRoulette);
+            return newRoulette;
+        }
     }
 }

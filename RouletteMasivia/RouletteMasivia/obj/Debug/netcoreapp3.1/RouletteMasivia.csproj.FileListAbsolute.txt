@@ -1,4 +1,3 @@
-E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.csprojAssemblyReference.cache
 E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.AssemblyInfoInputs.cache
 E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.AssemblyInfo.cs
 E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.csproj.CoreCompileInputs.cache
@@ -18,3 +17,9 @@ E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcor
 E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.dll
 E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.pdb
 E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.genruntimeconfig.cache
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.MvcApplicationPartsAssemblyInfo.cs
+E:\Documents\cSharp\Masiapp_DEV\RouletteMasivia\RouletteMasivia\obj\Debug\netcoreapp3.1\RouletteMasivia.csproj.CopyComplete

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using RouletteMasivia.Domain;
 
-namespace RouletteMasivia.Controllers.Requests
+namespace RouletteMasivia.Controllers.V1.Requests
 {
     public class CreateRouletteBet
     {

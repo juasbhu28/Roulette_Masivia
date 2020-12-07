@@ -6,16 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using RouletteMasivia.Controllers.Responses;
-using RouletteMasivia.Controllers.Requests;
+using RouletteMasivia.Controllers.V1.Responses;
+using RouletteMasivia.Controllers.V1.Requests;
+using RouletteMasivia.Contracts;
+using RouletteMasivia.Contracts.V1;
 
-namespace RouletteMasivia.Controllers
+namespace RouletteMasivia.V1.Controllers
 {
     public class RouletteController : Controller
     {
         private readonly IRouletteService _rouletteServices;
+        public RouletteController(IRouletteService rouletteService)
+        {
+            _rouletteServices = rouletteService;
+        }
 
-        [HttpGet("/roulette/newgame")]
+        [HttpGet(ApiRoutes.Roulette.NewGame)]
         public IActionResult NewGame()
         {
             var roulette = _rouletteServices.NewGame();
@@ -23,7 +29,7 @@ namespace RouletteMasivia.Controllers
             return Ok(response);
         }
 
-        [HttpGet("/roulette/getstatusgame/{rouletteId}")]
+        [HttpGet(ApiRoutes.Roulette.GetStatusGame)]
         public IActionResult GetStatusGame([FromRoute]Guid rouletteId)
         {
             var roulette = _rouletteServices.GetStatusRoulette(rouletteId);
@@ -36,7 +42,7 @@ namespace RouletteMasivia.Controllers
             return Ok(response);
         }
 
-        [HttpGet("/roulette/newbet/{rouletteId}")]
+        [HttpGet(ApiRoutes.Roulette.NewBet)]
         public IActionResult NewBet([FromRoute]Guid rouletteId, [FromBody]CreateRouletteBet bet)
         {
             var rouletteBet = _rouletteServices.NewBet(rouletteId, bet);
@@ -44,7 +50,7 @@ namespace RouletteMasivia.Controllers
             return Ok(rouletteBet);
         }
 
-        [HttpGet("/roulette/closegame/{rouletteId}")]
+        [HttpGet(ApiRoutes.Roulette.CloseGame)]
         public IActionResult CloseGame([FromRoute]Guid rouletteId)
         {
             var winners = _rouletteServices.CloseGame(rouletteId);
@@ -52,7 +58,7 @@ namespace RouletteMasivia.Controllers
             return Ok(winners);
         }
 
-        [HttpGet("/roulette/getallgames")]
+        [HttpGet(ApiRoutes.Roulette.GetAllGames)]
         public IActionResult GetAllGames()
         {
             return Ok(_rouletteServices.GetRoulettes());

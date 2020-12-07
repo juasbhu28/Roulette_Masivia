@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using RouletteMasivia.Controllers.Requests;
+using RouletteMasivia.Controllers.V1.Requests;
 
 namespace RouletteMasivia.Services
 {
